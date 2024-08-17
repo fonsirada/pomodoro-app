@@ -1,0 +1,172 @@
+html {
+    width: 300px;
+    overflow-y: scroll;
+}
+
+#title {
+    color: rgb(241, 66, 35);
+    text-align: center;
+}
+
+#timer-container {
+    text-align: center;
+    background-color: rgb(223, 141, 48);
+    height: 150px;
+    position: relative;
+}
+
+#timer-text {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    bottom: 68%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+#time {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#timer-buttons {
+    position: absolute;
+    left: 50%;
+    top: 74%;
+    transform: translateX(-50%);
+}
+
+#start-btn {
+    background-color: rgb(66, 196, 90);
+    border-color: rgb(16, 146, 40);
+    color: white;
+    font-weight: bold;
+}
+
+#pause-btn {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    font-weight: bold;
+    border-color: rgb(200,0,0);
+}
+
+#save-btn {
+    position: absolute;
+    width: 44px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: white;
+    border-color: rgb(215, 215, 215);
+    color: black;
+    top: 85%;
+    left: 2%;
+}
+
+#reset-btn {
+    position: absolute;
+    width: 44px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: white;
+    border-color: rgb(215, 215, 215);
+    color: black;
+    top: 85%;
+    right: 2%;
+}
+
+#study-sessions {
+    text-align: center;
+    padding-top: 20px;
+    position: relative;
+    top: -20px;
+}
+
+#ss-table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#ss-table th {
+    font-size: 10px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* time started column */
+#ss-table th:nth-child(1) {
+    width: 40%;
+}
+
+/* time-studied column */
+#ss-table th:nth-child(2) {
+    width: 10%;
+}
+
+#ss-table td {
+    font-size: 10px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    word-wrap: break-word;
+    word-break: break-word;
+    text-align: center;
+}
+
+#clear-ss-btn {
+    position: absolute;
+    width: 44px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: black;
+    top: 171px;
+    right: 27px;
+}
+
+#title-session {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#enter-btn {
+    position: absolute;
+    width: 44px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: white;
+    border-color: rgb(215, 215, 215);
+    color: black;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* gives buttons top layer to be pressed */
+button {
+    z-index: 1;
+}

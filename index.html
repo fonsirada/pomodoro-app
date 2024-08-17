@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pomodoro Chrome Extension</title>
+</head>
+<body>
+    <h1 id="title">Pomodoro Timer</h1>
+    <div id="timer-container">
+        <h3 id="timer-text">Start A Study Session</h3>
+        <p id="time">00:05</p>
+        <div id="timer-buttons">
+            <button id="start-btn">START</button>
+        </div>
+        <div id="storage-buttons"></div>
+        <div id="clr-btn-holder"></div>
+    </div>
+    <div id="study-sessions">
+        <h3 id="ss-title">Study Sessions</h3>
+        <table id="ss-table">
+            <thead>
+                <th>Start Time</th>
+                <th>Time Studied</th>
+                <th>Title</th>
+            </thead>
+            <tbody id="ss-rows">
+            </tbody>
+        </table>
+    </div>
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
