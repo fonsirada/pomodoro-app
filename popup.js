@@ -70,7 +70,7 @@ const runTimer = () => {
 const breakTime = () => {
     timerData.isBreak = true;
     timerData.timeStudied.minutes += 25;
-    timerData.timeLeft = timerData.workCounter % 3 === 0 ? { minutes: 0, seconds: 10 } : { minutes: 0, seconds: 5};
+    timerData.timeLeft = timerData.workCounter % 3 === 0 ? { minutes: 15, seconds: 0 } : { minutes: 5, seconds: 0};
     updateTimerData();
 };
 
@@ -82,7 +82,7 @@ const workTime = () => {
     } else {
         timerData.timeStudied.minutes += 5;
     }
-    timerData.timeLeft = { minutes: 0, seconds: 5 };
+    timerData.timeLeft = { minutes: 25, seconds: 0 };
     timerData.workCounter++;
     updateTimerData();
 };
@@ -318,12 +318,12 @@ const setupSessions = () => {
 // sets up UI to initial state
 const initialize = (reset) => {
     timerBtnsDiv.innerHTML = '<button id="start-btn">START</button>';
-    time.textContent = "00:05";
+    time.textContent = "25:00";
     timerContainer.style.backgroundColor = "rgb(223, 141, 48)";
     timerText.textContent = "Start a Study Session";
     storageBtnsDiv.innerHTML = "";
     let data = {
-        timeLeft: { minutes : 0, seconds : 5 },
+        timeLeft: { minutes : 25, seconds : 0 },
         isRunning: false,
         isBreak: false,
         workCounter: 1,
