@@ -1,14 +1,17 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"
-import { getDatabase, get, set, ref, push, onValue, remove} from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js"
+import { getDatabase, get, set, ref } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js"
 
 const firebaseConfig = {
     databaseURL: "https://pomodoro-timer-2cd51-default-rtdb.firebaseio.com/"
 };
 
+//firebase database
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const referenceInDB = ref(database, "timerData");
+let timerData;
 
+//grabbing html code
 const time = document.querySelector("#time");
 const timerText = document.querySelector("#timer-text");
 const timerContainer = document.querySelector("#timer-container");
@@ -18,7 +21,13 @@ const ssRows = document.querySelector("#ss-rows");
 const clrBtnDiv = document.querySelector("#clr-btn-holder");
 let timerInterval;
 
-let timerData;
+//sound effects
+const alarm = document.getElementById("alarm");
+const beep = document.getElementById("beep");
+const pause = document.getElementById("pause");
+const trash = document.getElementById("trash");
+const save = document.getElementById("save");
+
 
 //start/resume timer
 const startTimer = () => {
@@ -45,6 +54,7 @@ const pauseTimer = () => {
 // timer, tracks minutes and seconds
 const runTimer = () => {
     if (timerData.timeLeft.minutes === 0 && timerData.timeLeft.seconds === 0) {
+        alarm.play();
         //sendNotification();
         clearInterval(timerInterval);
         timerData.isRunning = false;
@@ -70,7 +80,7 @@ const runTimer = () => {
 const breakTime = () => {
     timerData.isBreak = true;
     timerData.timeStudied.minutes += 25;
-    timerData.timeLeft = timerData.workCounter % 3 === 0 ? { minutes: 15, seconds: 0 } : { minutes: 5, seconds: 0};
+    timerData.timeLeft = timerData.workCounter % 3 === 0 ? { minutes: 15, seconds: 0 } : { minutes: 5, seconds: 0 };
     updateTimerData();
 };
 
@@ -154,10 +164,12 @@ const adjustTimeStudied = () => {
 // start and pause buttons (added dynamically)
 timerBtnsDiv.addEventListener("click", function(event) {
     if (event.target && event.target.id === "start-btn") {
+        beep.play();
         startTimer();
         updateRunning();
     }
     if (event.target && event.target.id === "pause-btn") {
+        pause.play();
         pauseTimer();
         updatePause();
     }
@@ -166,6 +178,7 @@ timerBtnsDiv.addEventListener("click", function(event) {
 // save and reset buttons (added dynamically)
 storageBtnsDiv.addEventListener("click", function(event) {
     if (event.target && event.target.id === "reset-btn") {
+        trash.play();
         initialize(true);
     }
     if (event.target && event.target.id === "save-btn") {
@@ -174,6 +187,7 @@ storageBtnsDiv.addEventListener("click", function(event) {
     }
     if (event.target && event.target.id === "enter-btn") {
         const inputEl = document.querySelector("#title-session");
+        save.play();
         saveSession(inputEl.value);
         setupSessions();
         initialize(true);
@@ -183,6 +197,7 @@ storageBtnsDiv.addEventListener("click", function(event) {
 //click listener for clear button
 clrBtnDiv.addEventListener("click", function(event) {
     if (event.target && event.target.id === "clear-ss-btn") {
+        trash.play();
         timerData.savedSessions = ["placeholder"];            
         setupSessions();
         updateTimerData();
