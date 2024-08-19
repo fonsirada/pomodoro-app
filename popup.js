@@ -102,7 +102,7 @@ const titleSession = () => {
     timerText.textContent = "Title your session:";
     time.textContent = "";
     timerBtnsDiv.innerHTML = "";
-    const inputHTML= '<input type="text" id="title-session">';
+    const inputHTML= '<input type="text" id="title-session" placeholder="MyStudySession">';
     const enterBtnHTML = '<button id="enter-btn">ENTER</button>';
     storageBtnsDiv.innerHTML = `${inputHTML}${enterBtnHTML}`;
 };
@@ -110,6 +110,7 @@ const titleSession = () => {
 //saves study session
 const saveSession = (title) => {
     currentTimeStudied();
+    title = title.trim() === "" ? "MyStudySession" : title;
     const session = {
         date: timerData.dateStarted,
         time: timerData.timeStarted,
