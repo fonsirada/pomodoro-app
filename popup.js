@@ -55,7 +55,6 @@ const pauseTimer = () => {
 const runTimer = () => {
     if (timerData.timeLeft.minutes === 0 && timerData.timeLeft.seconds === 0) {
         alarm.play();
-        //sendNotification();
         clearInterval(timerInterval);
         timerData.isRunning = false;
         if (!timerData.isBreak) {
