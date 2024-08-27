@@ -1,2 +1,2 @@
 # pomodoro-app
-Pomodoro Technique Timer App
+JavaScript/HTML/CSS Pomodoro Technique Study App
